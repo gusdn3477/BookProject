@@ -35,6 +35,7 @@ export default function SignUp() {
       })
 
 
+
   const isUserId = userId => {
     const userIdRegex = /^[a-z0-9_!@$%^&*-+=?"]{1,20}$/
     return userIdRegex.test(userId);
@@ -60,6 +61,8 @@ export default function SignUp() {
   const confirmPassword = (pass, confirmPass) => {
     return pass === confirmPass
   }
+
+
 
       const onTextCheck = () => {
         let userIdError = "";
@@ -118,21 +121,19 @@ export default function SignUp() {
         if (!valid) console.error("retry");
 
         else {
-            fetch(`/user-service/users`,{
+        
+            fetch(`http://${process.IP}:${process.PORT}/users`,{
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    email : values.email,
-                    pwd : values.password,
-                    name : values.name
-                    // id : usersDatas.length + 1,
-                    // userId: values.userId,
-                    // password: values.password,
-                    // name: values.name,
-                    // email: values.email,
-                    // phone: values.phone
+                    id : usersDatas.length + 1,
+                    userId: values.userId,
+                    password: values.password,
+                    name: values.name,
+                    email: values.email,
+                    phone: values.phone
                 }),
             }).
             then(
@@ -175,6 +176,7 @@ export default function SignUp() {
                                 <div style={{ color: "gray", fontSize: "10px", margin: '-5px 0 10px 15px' }}>{guideTxts.userGuide}</div>
                     }
 
+                    
                     
                     <div className="col-lg-12 col-md-12">
                         <div className="billing-info">

@@ -36,6 +36,7 @@ export default function CompareTable(){
     }
 
 
+
     const comparelist01 = compareDatas.map(item => (
         <td className="product-image-title">
             <div className="compare-remove">

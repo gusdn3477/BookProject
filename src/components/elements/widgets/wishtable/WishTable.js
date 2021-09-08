@@ -5,7 +5,11 @@ export default function WishTable(){
 
 
     const [wishDatas, setWishDatas] = useState([]);
+
+    
     let process = require('../../../../db/myProcess.json');
+
+  
   
     useEffect(()=>{
         fetch(`http://${process.IP}:${process.PORT}/wish`)
@@ -17,7 +21,9 @@ export default function WishTable(){
             console.log(data);
         });
     },[process.IP, process.PORT]);
+
     
+
        const handleDelete = (id) => {
         fetch(`http://${process.IP}:${process.PORT}/wish/${id}`,{ //DB의 내용만 삭제되서 삭제버튼 누르고 새로고침 해야 뷰에서 없어진다.
             method: "DELETE"
@@ -34,6 +40,8 @@ export default function WishTable(){
         )
        }
 
+
+
         const wishTableList = wishDatas.map((item, idx) => (
         <tr key ={idx}>
             <td className="product-thumbnail"><Link to ={`/productdetail/${item.id}`}><img className="img-fluid" src={item.image[0]} alt=""/></Link></td>
@@ -44,9 +52,13 @@ export default function WishTable(){
         </tr>
         ));
 
+
+
     return(
      <div className="cart-main-area pt-90 pb-100">
         <div className="container">
+
+
 
             <h3 className="cart-page-title">Your wishlist items</h3>
             <div className="row">
@@ -72,6 +84,10 @@ export default function WishTable(){
                 </div>
             </div>
 
+
+
+
+
             <div className="row">
                 <div className="col-lg-12">
                     <div className="cart-shiping-update-wrapper">
@@ -82,6 +98,8 @@ export default function WishTable(){
                     </div>
                 </div>
             </div>
+
+
             
         </div>
     </div>

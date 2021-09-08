@@ -22,6 +22,10 @@ export default function ProductView({categoryName, sliceNumber , columnNumber}){
         
     },[process.IP, process.PORT]);
 
+
+
+
+
     const searchData = categoryName
     ? newData.filter(
         item => item.category.filter(single => single === categoryName)[0]
@@ -62,6 +66,9 @@ export default function ProductView({categoryName, sliceNumber , columnNumber}){
     }
 
 
+
+
+
     const handlePutCompareList = (id) => {
 
              fetch(`http://${process.IP}:${process.PORT}/product/${id}`)
@@ -90,6 +97,11 @@ export default function ProductView({categoryName, sliceNumber , columnNumber}){
 
     }
 
+
+
+
+     
+    
     // const searchData = newData.filter(index => (
     //    index.category[0] === categoryName || index.category[1] === categoryName || index.category[2] === categoryName
     // ))
@@ -134,9 +146,8 @@ export default function ProductView({categoryName, sliceNumber , columnNumber}){
                     </div>
                 </div>
             </div>
-            {/* 여기부터 제목, 평점 부분 */}
             <div className="product-content text-center">
-                <h3><Link to={`/productdetail/${item.id}`}>{item.productName}</Link></h3>
+                <h3><Link to={`/productdetail/${item.id}`}>{item.name}</Link></h3>
                 <div className="product-rating">
                     {item.rating && item.rating > 0 ? (
                         <Rating ratingValue={item.rating} />
@@ -145,7 +156,8 @@ export default function ProductView({categoryName, sliceNumber , columnNumber}){
                 )}
                 </div>
                 <div className="product-price">
-                    <span>{item.unitPrice}</span> 
+                    <span>{item.price}</span> 
+                    <span className="old">{(item.price * ((100+item.discount)/100)).toFixed(2)}</span>
                 </div>
             </div>
         </div>
@@ -158,6 +170,8 @@ export default function ProductView({categoryName, sliceNumber , columnNumber}){
         <div className="row mt-5">
             {productList}
 
+
+            
         </div>
         
     );

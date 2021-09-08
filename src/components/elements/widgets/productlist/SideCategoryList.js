@@ -2,13 +2,17 @@ import React, {useEffect, useState} from "react";
 
 export default function SideCategoryList({item, setCategoryName}){
 
+
     const [chk , setChk] = useState(false);
+
     const handleCheck = (name) => {
         setCategoryName(name)
         setChk(!chk)
+
+           
     }
 
-    let process = require('../../../../db/myProcess.json');
+    var process = require('../../../../db/myProcess.json');
 
     const [newData, setnewData] = useState([]);
     console.log(newData);
@@ -25,6 +29,11 @@ export default function SideCategoryList({item, setCategoryName}){
         })
         
     },[process.IP, process.PORT]);
+
+
+
+    
+
 
     return(
         <li key ={item.id}>

@@ -5,10 +5,9 @@ export default function TabMenu({setCategoryName, categoryName}){
 
 
     const [ categoryData, setCategoryData ] = useState([]);
-    let process = require('../../../db/myProcess.json');
 
     useEffect(() => {
-        fetch(`http://${process.IP}:${process.PORT}/category`)
+        fetch("http://localhost:3005/category")
         .then(res => {
             return res.json();
         })
@@ -17,6 +16,14 @@ export default function TabMenu({setCategoryName, categoryName}){
         })
         //.catch(error => console.log(error))
     },[]);
+
+
+
+
+
+
+
+
 
     const [ select , setSelect ] = useState(true);
     const [ active , setActive ] = useState(false);
@@ -30,6 +37,8 @@ export default function TabMenu({setCategoryName, categoryName}){
     }
 
     console.log(select);
+ 
+    
   
     return(
         <div className="row mb-5">

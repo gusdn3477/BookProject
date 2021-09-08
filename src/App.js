@@ -22,14 +22,13 @@ import ReduxSample from '../src/components/pages/reduxsample/ReduxSample'
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import Test from './components/pages/Test/Test';
-import Login from './components/pages/User/Login';
-import Register from './components/pages/User/Register';
 
 function App() {
   return (
     <BrowserRouter>
     <ToTop>
       <Switch>
+
         <Route exact path="/"><Home /></Route>
         <Route exact path="/compare"><Compare/></Route>   
         <Route exact path="/cart"><Cart/></Route>
@@ -39,11 +38,11 @@ function App() {
         <Route exact path="/productlist"><ProductList/></Route>
         <Route exact path="/myaccount"><MyAccount/></Route>
         <Route exact path="/test"><Test/></Route>
-        <Route exact path="/register"><Register/></Route>
-        <Route exact path="/login"><Login/></Route>
         <Provider store={store}>
           <Route exact path="/reduxsample"><ReduxSample/></Route>
         </Provider>
+     
+
       </Switch>
       </ToTop>
     </BrowserRouter>

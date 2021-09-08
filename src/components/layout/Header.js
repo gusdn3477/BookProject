@@ -6,9 +6,11 @@ export default function Header(){
     return (
         
         <header className="header-area clearfix">
-            {/*<HeaderTop/>*/}
+            <HeaderTop/>
             <Nav/>
             
+
+
     </header>
     );
 }
